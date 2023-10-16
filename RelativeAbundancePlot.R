@@ -28,6 +28,7 @@ plot_df <- newseqtab %>% filter(!is.na(Order)) %>%
 
 ggplot(plot_df, aes(x = sample, y = Percent, fill = Order))+
   geom_bar(stat = "identity")+ theme_classic()+
+  facet_wrap(~repl, ncol = length(unique(plot_df$repl)), scales = "free_x")+
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
 
 av_df <- newseqtab %>% filter(!is.na(Order)) %>%
